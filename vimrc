@@ -16,7 +16,7 @@ set expandtab
 set fencs=ucs-bom,utf-8,defeault,latin,cp936,gb2312
 set ffs=unix,dos,mac "Default file types
 set formatoptions=qrn1
-set gdefault "set g is default when subsitute
+set gdefault "set global substitution
 set hid "Change buffer - without saving
 set hlsearch "Highlight search things
 set ignorecase "Ignore case when searching
@@ -62,7 +62,6 @@ syntax enable "Enable syntax hl
 set shell=/bin/bash
 
 if has("gui_running")
-  set guioptions-=m
   set guioptions-=T
   set guioptions-=R
   set guioptions-=r
@@ -183,6 +182,7 @@ map <leader>tm :tabmove
 
 " When pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>
+map <leader>ce :cd ~/dev<cr>
 
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
@@ -218,7 +218,7 @@ endtry
 "     \ endif
 
 "Remeber open buffers on close
-"set viminfo^=%
+set viminfo^=%
 
 " Always show the statusline
 set laststatus=2
@@ -252,22 +252,6 @@ endfunction
 " Format the statusline
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L%{GitBranch()}
 
-vnoremap $1 <esc>`>a)<esc>`<i(<esc>
-vnoremap $2 <esc>`>a]<esc>`<i[<esc>
-vnoremap $3 <esc>`>a}<esc>`<i{<esc>
-vnoremap $$ <esc>`>a"<esc>`<i"<esc>
-vnoremap $q <esc>`>a'<esc>`<i'<esc>
-vnoremap $e <esc>`>a"<esc>`<i"<esc>
-
-" Map auto complete of (, ", ', [
-inoremap $1 ()<esc>i
-inoremap $2 []<esc>i
-inoremap $3 {}<esc>i
-inoremap $4 {<esc>o}<esc>O
-inoremap $q ''<esc>i
-inoremap $e ""<esc>i
-inoremap $t <><esc>i
-
 iab xdate <c-r>=strftime("%Y-%m-%d %H:%M:%S")<cr>
 
 "Remap VIM 0
@@ -289,7 +273,7 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 
 set guitablabel=%t
 
-map <leader>cc :botright cope<cr>
+map <leader>c :botright cope<cr>
 map <leader>n :cn<cr>
 map <leader>p :cp<cr>
 
@@ -301,7 +285,6 @@ let g:bufExplorerShowRelativePath=1
 let g:bufExplorerFindActive=1
 let g:bufExplorerSortBy='name'
 map <leader>o :BufExplorer<cr>
-
 
 "Pressing ,ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
@@ -339,8 +322,8 @@ def EvaluateCurrentRange():
 EOL
 map <C-e> :py EvaluateCurrentRange()
 
-au BufNewFile,BufRead *.jinja set syntax=htmljinja
-au BufNewFile,BufRead *.j2 set syntax=htmljinja
+au BufNewFile,BufRead *.jinja set ft=html
+au BufNewFile,BufRead *.j2 set ft=html
 au BufNewFile,BufRead *.mako set ft=mako
 
 """"""""""""""""""""""""""""""
@@ -368,7 +351,7 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 " => MRU plugin
 """"""""""""""""""""""""""""""
 let MRU_Max_Entries = 400
-map <leader>f :MRU<CR>
+map <leader>r :MRU<CR>
 
 "fuf file explorer
 map <leader>v :FufDir<cr>
@@ -401,6 +384,9 @@ autocmd! bufwritepost vimrc source $MYVIMRC<cr>
 nnoremap <leader>ev <c-w><c-v><c-l>:e $MYVIMRC<cr>
 nnoremap <leader>w <c-w>v<c-w>l
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=""<cr>
-nnoremap <leader>a :Ack
+nnoremap <leader>a :Ack 
 map <leader>q :vnew ~/buffer<cr>
 nmap <F12> :!ctags -R *<cr>
+
+autocmd FileType cpp set makeprg=g++\ -o\ %<\ %
+autocmd FileType c set makeprg=gcc\ -o\ %<\ %

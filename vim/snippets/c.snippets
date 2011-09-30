@@ -6,8 +6,8 @@ snippet main
 		return 0;
 	}
 # #include <...>
-snippet inc
-	#include <${1:stdio}.h>${2}
+snippet inc 
+	#include <${1:stdio.h}>${2}
 # #include "..."
 snippet Inc
 	#include "${1:`Filename("$1.h")`}"${2}
@@ -61,18 +61,17 @@ snippet wh
 	}
 # For Loop
 snippet for
-	for (${2:i} = 0; $2 < ${1:count}; $2${3:++}) {
-		${4:/* code */}
+	for (${1:int} ${2:i}=${3:0}; $2<${4:count}; $2${5:++}) {
+		${6:/* code */}
 	}
 # Custom For Loop
 snippet forr
-	for (${1:i} = ${2:0}; ${3:$1 < 10}; $1${4:++}) {
-		${5:/* code */}
+	for (${1:int} ${2:i}=${3:0}; $2${4:<size}; $2${5:++}) {
+		${6:/* code */}
 	}
 # Function
 snippet fun
-	${1:void} ${2:function_name}(${3})
-	{
+	${1:void} ${2:function_name}(${3}){
 		${4:/* code */}
 	}
 # Function Declaration
