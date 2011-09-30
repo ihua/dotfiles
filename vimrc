@@ -1,3 +1,4 @@
+"based on http://amix.dk/vim/vimrc.html
 set history=1000
 filetype off
 call pathogen#helptags()
