@@ -34,3 +34,9 @@
 [submodule "vim/bundle/cuteErrorMarker"]
 	path = vim/bundle/cuteErrorMarker
 	url = https://github.com/Twinside/vim-cuteErrorMarker.git
+[submodule "vim/bundle/tagbar"]
+	path = vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule "vim/bundle/scala-vim-support"]
+	path = vim/bundle/scala-vim-support
+	url = https://github.com/rosstimson/scala-vim-support.git
