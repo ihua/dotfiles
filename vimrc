@@ -224,35 +224,6 @@ set viminfo^=%
 " Always show the statusline
 set laststatus=2
 
-""Git branch
-"function! GitBranch()
-"    try
-"        let branch = system("git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //'")
-"    catch
-"        return ''
-"    endtry
-"
-"    if branch != ''
-"        return '   Git Branch: ' . substitute(branch, '\n', '', 'g')
-"    en
-"
-"    return ''
-"endfunction
-"
-"function! CurDir()
-"    return substitute(getcwd(), '/home/riccardo/', "~/", "g")
-"endfunction
-"
-"function! HasPaste()
-"    if &paste
-"        return 'PASTE MODE  '
-"    en
-"    return ''
-"endfunction
-"
-"" Format the statusline
-"set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L%{GitBranch()}
-
 iab xdate <c-r>=strftime("%Y-%m-%d %H:%M:%S")<cr>
 
 "Remap VIM 0
