@@ -25,3 +25,12 @@
 [submodule "vim/bundle/latex"]
 	path = vim/bundle/latex
 	url = git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex
+[submodule "vim/bundle/javacomplete"]
+	path = vim/bundle/javacomplete
+	url = https://github.com/vim-scripts/javacomplete.git
+[submodule "vim/bundle/matchit"]
+	path = vim/bundle/matchit
+	url = https://github.com/vim-scripts/matchit.zip.git
+[submodule "vim/bundle/cuteErrorMarker"]
+	path = vim/bundle/cuteErrorMarker
+	url = https://github.com/Twinside/vim-cuteErrorMarker.git
