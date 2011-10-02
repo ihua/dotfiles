@@ -16,3 +16,12 @@
 [submodule "vim/bundle/surround"]
 	path = vim/bundle/surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/bundle/VisIncr"]
+	path = vim/bundle/VisIncr
+	url = https://github.com/vim-scripts/VisIncr.git
+[submodule "vim/bundle/OmniCppComplete"]
+	path = vim/bundle/OmniCppComplete
+	url = https://github.com/vim-scripts/OmniCppComplete.git
+[submodule "vim/bundle/latex"]
+	path = vim/bundle/latex
+	url = git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex
