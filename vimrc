@@ -258,9 +258,32 @@ let g:bufExplorerFindActive=1
 let g:bufExplorerSortBy='name'
 map <leader>o :BufExplorer<cr>
 
-"Pressing ,ss will toggle and untoggle spell checking
-map <leader>ss :setlocal spell!<cr>
+""""""""""""""""""""""""""""""
+" => MRU plugin
+""""""""""""""""""""""""""""""
+let MRU_Max_Entries = 400
+map <leader>r :MRU<CR>
 
+"fuf file explorer
+map <leader>v :FufDir<cr>
+map <leader>f :FufFile<cr>
+
+""""""""""""""""""""""""""""""
+" => Command-T
+""""""""""""""""""""""""""""""
+let g:CommandTMaxHeight = 15
+set wildignore+=*.o,*.obj,.git,*.pyc
+noremap <leader>y :CommandTFlush<cr>
+"noremap! <leader>j :PeepOpen<cr>
+"Pressing ,ss will toggle and untoggle spell checking
+
+""""""""""""""""""""""""""""""
+" => tagbar
+""""""""""""""""""""""""""""""
+let g:tagbar_usearrows = 1
+nnoremap <leader>l :TagbarToggle<CR>
+
+map <leader>ss :setlocal spell!<cr>
 "Shortcuts using <leader>
 map <leader>sn ]s
 map <leader>sp [s
@@ -319,23 +342,6 @@ endfunction
 
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
-""""""""""""""""""""""""""""""
-" => MRU plugin
-""""""""""""""""""""""""""""""
-let MRU_Max_Entries = 400
-map <leader>r :MRU<CR>
-
-"fuf file explorer
-map <leader>v :FufDir<cr>
-map <leader>f :FufFile<cr>
-
-""""""""""""""""""""""""""""""
-" => Command-T
-""""""""""""""""""""""""""""""
-let g:CommandTMaxHeight = 15
-set wildignore+=*.o,*.obj,.git,*.pyc
-noremap <leader>y :CommandTFlush<cr>
-"noremap! <leader>j :PeepOpen<cr>
 
 """"""""""""""""""""""""""""""
 " => Vim grep
