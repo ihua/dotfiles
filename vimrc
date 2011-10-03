@@ -1,45 +1,45 @@
 "based on http://amix.dk/vim/vimrc.html
-set history=1000
 filetype off
-call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
-filetype plugin indent on "Enable filetype plugin
+call pathogen#helptags()
+filetype plugin indent on                           "  Enable filetype plugin
+set history=1000
 set nocompatible
 set autoread
 let mapleader = ","
 let g:mapleader = ","
-set ai "Auto indent
+set ai                                              "  Auto indent
 set backspace=eol,start,indent
-set cmdheight=2 "The commandbar height
+set cmdheight=2                                     "  The commandbar height
 "set cursorline
 set encoding=utf8
 set expandtab
 set fencs=ucs-bom,utf-8,defeault,latin,cp936,gb2312
-set ffs=unix,dos,mac "Default file types
+set ffs=unix,dos,mac                                "  Default file types
 set formatoptions=qrn1
-set gdefault "set global substitution
-set hid "Change buffer - without saving
-set hlsearch "Highlight search things
-set ignorecase "Ignore case when searching
-set incsearch "Make search act like search in modern browsers
+set gdefault                                        "  set global substitution
+set hid                                             "  Change buffer - without saving
+set hlsearch                                        "  Highlight search things
+set ignorecase                                      "  Ignore case when searching
+set incsearch                                       "  Make search act like search in modern browsers
 set lbr
 "set list
 "set listchars=tab:▸\ ,eol:¬
-set magic "Set magic on, for regular expressions
-set mat=2 "How many tenths of a second to blink
+set magic                                           "  Set magic on, for regular expressions
+set mat=2                  "  How many tenths of a second to blink
 set modelines=0
 set nobackup
-set noerrorbells " No sound on errors
-set nolazyredraw "Don't redraw while executing macros
+set noerrorbells           "  No sound on errors
+set nolazyredraw           "  Don't redraw while executing macros
 set noswapfile
 set novisualbell
 set nowb
 set nu
-set ruler "Always show current position
+set ruler                  "  Always show current position
 set shiftwidth=4
-set showmatch "Show matching bracets when text indicator is over them
+set showmatch              "  Show matching bracets when text indicator is over them
 set showmode
-set si "Smart indet
+set si                     "  Smart indet
 set smartcase
 set smarttab
 set so=7
@@ -48,17 +48,17 @@ set tabstop=4
 set ttyfast
 set tw=80
 set whichwrap+=<,>,h,l
-set wildmenu "Turn on WiLd menu
+set wildmenu               "  Turn on WiLd menu
 set wildmode=list:longest
 "set wildmode=full:longest
-set wrap "Wrap lines
+set wrap                   "  Wrap lines
 "use very magical regex pattern match
 nnoremap  / /\v
 vnoremap / /\v
 "use tab to move around bracket pairs
 nnoremap % <tab>
 vnoremap % <tab>
-syntax enable "Enable syntax hl
+syntax enable 
 
 set shell=/bin/bash
 
@@ -77,11 +77,6 @@ else
   colorscheme zellner
   set background=dark
 endif
-
-" Some useful keys for vimgrep
-map <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
-map <leader>d :vimgrep // **/*<left><left><left><left><left><left><C-R><C-w>
-map <leader><space> :vimgrep // <C-R>%<C-A><right><right><right><right><right><right><right><right><right>
 
 " When you press <leader>r you can search and replace the selected text
 vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
@@ -165,45 +160,13 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Close the current buffer
-map <leader>bd :Bclose<cr>
-
-" Close all the buffers
-map <leader>ba :1,300 bd!<cr>
-
 " Use the arrows to something usefull
 map <right> :bn<cr>
 map <left> :bp<cr>
 
-" Tab configuration
-map <leader>tn :tabnew! %<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
-
 " When pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>
 map <leader>ce :cd ~/dev<cr>
-
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
-
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
-
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
-
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
-endfunction
 
 " Specify the behavior when switching between buffers
 try
