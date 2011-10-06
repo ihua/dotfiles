@@ -2,7 +2,8 @@
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
-filetype plugin indent on                           "  Enable filetype plugin
+filetype on
+filetype plugin indent on                           " enable loading indent file for filetype 
 set history=1000
 set nocompatible
 set autoread
