@@ -114,7 +114,7 @@ map <leader>s? z="/*}}}*/
 
 "Scripts and Bundles "/*{{{*/
 filetype off
-set rtp+=~/.vim/vundle.git/
+set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
 "general must-haves
@@ -134,7 +134,7 @@ Bundle "https://github.com/vim-scripts/YankRing.vim.git"
 Bundle "https://github.com/Raimondi/delimitMate.git"
 
 "Snipmate
-Bundle "git@github.com:ricardoshaw/snipmate.vim.git"
+Bundle "https://github.com/msanders/snipmate.vim.git"
 
 "Syntax highlight
 Bundle "https://github.com/plasticboy/vim-markdown.git"
@@ -212,5 +212,8 @@ Bundle "https://github.com/bronson/vim-visual-star-search.git"
 Bundle "https://github.com/vim-scripts/mru.vim.git"
 let MRU_Max_Entries = 400
 map <leader>m :MRU<CR>
+
+"for clojure
+Bundle "https://github.com/vim-scripts/VimClojure.git"
 
 filetype plugin indent on  "enable loading indent file for filetype/*}}}*/
