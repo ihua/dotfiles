@@ -1,4 +1,3 @@
-set nocompatible
 set history=1000
 set viminfo^=% "Remeber open buffers on close
 set autoread
@@ -113,35 +112,39 @@ map <leader>sa zg
 map <leader>s? z="/*}}}*/
 
 "Scripts and Bundles "/*{{{*/
+set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=$HOME/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
 "general must-haves
-Bundle "https://github.com/thinca/vim-quickrun.git"
-Bundle "https://github.com/tpope/vim-repeat.git"
-Bundle "https://github.com/vim-scripts/VisIncr.git"
-Bundle "https://github.com/scrooloose/nerdcommenter.git"
-Bundle "https://github.com/tpope/vim-surround.git"
-Bundle "https://github.com/vim-scripts/matchit.zip.git"
-Bundle "https://github.com/Twinside/vim-cuteErrorMarker.git"
-Bundle "https://github.com/majutsushi/tagbar.git"
+Plugin 'thinca/vim-quickrun.git'
+Plugin 'tpope/vim-repeat.git'
+Plugin 'vim-scripts/VisIncr.git'
+Plugin 'scrooloose/nerdcommenter.git'
+Plugin 'tpope/vim-surround.git'
+Plugin 'vim-scripts/matchit.zip.git'
+Plugin 'Twinside/vim-cuteErrorMarker.git'
+Plugin 'majutsushi/tagbar.git'
 let g:tagbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
-Bundle "https://github.com/ervandew/supertab.git"
-Bundle "https://github.com/godlygeek/tabular.git"
-Bundle "https://github.com/vim-scripts/YankRing.vim.git"
-Bundle "https://github.com/Raimondi/delimitMate.git"
+Plugin 'ervandew/supertab.git'
+Plugin 'godlygeek/tabular.git'
+Plugin 'vim-scripts/YankRing.vim.git'
+Plugin 'Raimondi/delimitMate.git'
 
 "Snipmate
-Bundle "https://github.com/msanders/snipmate.vim.git"
+Plugin 'msanders/snipmate.vim.git'
 
 "Syntax highlight
-Bundle "https://github.com/plasticboy/vim-markdown.git"
+Plugin 'plasticboy/vim-markdown.git'
 
 "Colorscheme
-Bundle "git://github.com/altercation/vim-colors-solarized.git"
-Bundle "https://github.com/tomasr/molokai.git"
+Plugin 'git://github.com/altercation/vim-colors-solarized.git'
+Plugin 'tomasr/molokai.git'
 if has("gui_running")
   set guioptions+=TRrLlb
   set guioptions-=TRrLlb
@@ -155,38 +158,44 @@ else
 endif
 
 "(HT|X)ML
-Bundle "https://github.com/tpope/vim-ragtag.git"
-Bundle "http://github.com/rstacruz/sparkup.git", {'rtp': 'vim/'}
-Bundle "https://github.com/mattn/zencoding-vim"
+Plugin 'tpope/vim-ragtag.git'
+Plugin 'rstacruz/sparkup.git', {'rtp': 'vim/'}
+Plugin 'mattn/emmet-vim'
 
 "Git
-Bundle "https://github.com/tpope/vim-fugitive.git"
-Bundle "https://github.com/tpope/vim-git.git"
+Plugin 'tpope/vim-fugitive.git'
+Plugin 'tpope/vim-git.git'
 
 "Programming languages
-Bundle "https://github.com/vim-scripts/OmniCppComplete.git"
-Bundle "https://github.com/vim-scripts/javacomplete.git"
-Bundle "https://github.com/rosstimson/scala-vim-support.git"
-"TeX related
-Bundle "git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex"
+Plugin 'vim-scripts/OmniCppComplete.git'
+Plugin 'vim-scripts/javacomplete.git'
+Plugin 'rosstimson/scala-vim-support.git'
+"for clojure
+Plugin 'vim-scripts/VimClojure.git'
+"for groovy
+Plugin 'vim-scripts/groovy.vim'
+" elixir
+Plugin 'slashmili/alchemist.vim'
+Plugin 'elixir-editors/vim-elixir'
+
 "Python realted
-Bundle "https://github.com/kevinw/pyflakes.git"
-Bundle "git://github.com/kevinw/pyflakes-vim.git"
-Bundle "https://github.com/cburroughs/pep8.py.git"
-Bundle "https://github.com/vim-scripts/pep8.git"
+Plugin 'kevinw/pyflakes.git'
+Plugin 'git://github.com/kevinw/pyflakes-vim.git'
+Plugin 'cburroughs/pep8.py.git'
+Plugin 'vim-scripts/pep8.git'
 let g:pep8_map='<leader>8'
 
-Bundle "https://github.com/alfredodeza/pytest.vim.git"
-Bundle "https://github.com/fs111/pydoc.vim.git"
+Plugin 'alfredodeza/pytest.vim.git'
+Plugin 'fs111/pydoc.vim.git'
 
 "Command-T
-Bundle "https://github.com/wincent/Command-T.git"
+Plugin 'wincent/Command-T.git'
 let g:CommandTMaxHeight = 15
 set wildignore+=*.o,*.obj,.git,*.pyc
 noremap <leader>y :CommandTFlush<cr>
 
 "BufExplorer
-Bundle "https://github.com/vim-scripts/bufexplorer.zip.git"
+Plugin 'vim-scripts/bufexplorer.zip.git'
 let g:bufExplorerDefaultHelp=0
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerFindActive=1
@@ -194,26 +203,25 @@ let g:bufExplorerSortBy='name'
 map <leader>o :BufExplorer<cr>
 
 "Ack
-Bundle "https://github.com/mileszs/ack.vim.git"
+Plugin 'mileszs/ack.vim.git'
 noremap <LocalLeader># "ayiw:Ack <C-r>a<CR>
 vnoremap <LocalLeader># "ay:Ack <C-r>a<CR>
 
 "FuzzyFinder
-Bundle "https://github.com/vim-scripts/L9.git"
-Bundle "https://github.com/vim-scripts/FuzzyFinder.git"
+Plugin 'vim-scripts/L9.git'
+Plugin 'vim-scripts/FuzzyFinder.git'
 nnoremap <leader>fd :FufDir<cr>
 nnoremap <leader>ff :FufFile<cr>
 nnoremap <leader>fb :FufBuffer<CR>
 
 "Visual Search
-Bundle "https://github.com/bronson/vim-visual-star-search.git"
+Plugin 'bronson/vim-visual-star-search.git'
 
 "mru
-Bundle "https://github.com/vim-scripts/mru.vim.git"
+Plugin 'vim-scripts/mru.vim.git'
 let MRU_Max_Entries = 400
 map <leader>m :MRU<CR>
 
-"for clojure
-Bundle "https://github.com/vim-scripts/VimClojure.git"
-
+" vundle end, required
+call vundle#end()
 filetype plugin indent on  "enable loading indent file for filetype/*}}}*/
