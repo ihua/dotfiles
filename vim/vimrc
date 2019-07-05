@@ -160,6 +160,7 @@ endif
 "(HT|X)ML
 Plugin 'tpope/vim-ragtag.git'
 Plugin 'rstacruz/sparkup.git', {'rtp': 'vim/'}
+let g:user_emmet_leader_key=','
 Plugin 'mattn/emmet-vim'
 
 "Git
